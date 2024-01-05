@@ -54,7 +54,10 @@ main(int argc, char* argv[])
   producerHelper.Install(nodes.Get(2)); // last node
 
   Simulator::Stop(Seconds(20.0));
-
+  
+  // Obtaining metrics by ndn::L3RateTracer
+  L3RateTracer::InstallAll("rate-trace.txt", Seconds(1.0));
+  
   Simulator::Run();
   Simulator::Destroy();
 
